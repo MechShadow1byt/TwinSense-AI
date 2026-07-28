@@ -1,115 +1,132 @@
 # 🌍 TwinSense AI
 
-> An AI-powered Environmental Digital Twin platform for monitoring, predicting, and optimizing industrial sustainability.
+> An AI-powered Environmental Digital Twin platform for monitoring, analysing, and optimising industrial energy and sustainability.
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
-![Status](https://img.shields.io/badge/Status-Under%20Development-orange)
+![Status](https://img.shields.io/badge/Status-Active%20Development-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## 📖 Overview
+# 📖 Overview
 
-TwinSense AI is an intelligent Environmental Digital Twin platform designed to help industries monitor their environmental impact, predict potential issues before they occur, and optimize factory operations using Artificial Intelligence.
+TwinSense AI is an AI-powered Environmental Digital Twin platform that helps industries understand, monitor, and optimise their factory operations.
 
-Unlike traditional monitoring systems that only display sensor data, TwinSense AI combines IoT, AI, and Digital Twin technology to create a virtual representation of an industrial environment capable of real-time analysis, prediction, and decision support.
+The project creates a virtual representation of a factory where machines, sensors, and operational data are connected together. The Digital Twin can analyse energy usage, estimate environmental impact, and eventually provide AI-driven recommendations for improving efficiency and sustainability.
 
-The long-term goal is to make advanced Digital Twin technology accessible not only to large industries but also to small and medium-sized manufacturers.
+The long-term vision is to make Digital Twin technology affordable and accessible for small and medium-sized manufacturers.
 
 ---
 
-## ✨ Features
+# ✨ Current Features
 
-### Current
+## Backend
 
 - FastAPI backend
 - REST API architecture
-- Factory data endpoint
-- System health endpoint
-- Interactive API documentation
-- Modular backend structure
+- Interactive Swagger documentation
+- Modular project structure
 
-### Planned
+## Factory Management
 
-- AI-powered pollution prediction
-- Digital Twin visualization
-- Machine health monitoring
+- Create factories
+- Retrieve factory information
+- Store multiple factories
+
+## Machine Management
+
+- Add machines to factories
+- Store machine specifications
+- Operating hours tracking
+
+## Sensor Management
+
+- Attach sensors to individual machines
+- Support for multiple sensor types
+- Sensor value storage
+
+## Energy Analytics
+
+- Calculate total factory energy consumption
+- Machine-wise energy calculation
+- Energy report generation
+- Energy usage classification
+  - High
+  - Medium
+  - Low
+
+---
+
+# 🚧 Planned Features
+
+- AI optimisation engine
+- Machine efficiency prediction
 - Carbon footprint estimation
-- Energy consumption analytics
-- Air quality prediction
-- Water pollution monitoring
-- Waste generation analysis
-- Factory optimization recommendations
-- IoT sensor integration
-- Real-time dashboard
+- Pollution prediction
 - Predictive maintenance
-- Virtual sensors using AI
-- Weather data integration
+- Digital Twin visualisation
+- Real-time dashboard
+- IoT sensor integration
+- Weather API integration
 - Satellite data integration
+- Production analytics
+- Cost optimisation
+- REGENARC energy intelligence module
 
 ---
 
-## 🏗 Project Architecture
+# 🏗 Current Architecture
 
 ```
-TwinSense AI
+Factory
 │
-├── Data Sources
-│   ├── IoT Sensors
-│   ├── Factory Information
-│   ├── Production Data
-│   ├── Weather APIs
-│   └── Satellite Data
+├── Machines
+│      │
+│      ├── Sensors
+│      ├── Power Rating
+│      ├── Operating Hours
+│      └── Energy Usage
 │
-├── Backend (FastAPI)
-│   ├── API
-│   ├── AI Engine
-│   ├── Digital Twin
-│   └── Database
-│
-├── AI Models
-│   ├── Pollution Prediction
-│   ├── Energy Prediction
-│   ├── Machine Health
-│   └── Optimization Engine
-│
-└── Dashboard
+└── Energy Analytics
+       │
+       ├── Total Factory Energy
+       ├── Machine Reports
+       └── Usage Classification
 ```
 
 ---
 
-## 🛠 Technology Stack
+# 🛠 Technology Stack
 
-### Backend
+## Backend
 
 - Python
 - FastAPI
 - Uvicorn
+- Pydantic
 
-### AI & Data Science (Planned)
+## AI (Planned)
 
 - Scikit-learn
-- TensorFlow / PyTorch
+- TensorFlow
+- PyTorch
+
+## Data
+
 - Pandas
 - NumPy
 
-### Computer Vision (Planned)
+## Computer Vision (Planned)
 
 - OpenCV
 
-### Database (Planned)
+## Database (Upcoming)
 
+- SQLite
 - PostgreSQL
-- SQLite (Development)
 
-### Visualization (Planned)
-
-- React
-- Plotly
-- Leaflet
-
-### IoT (Future)
+## IoT (Future)
 
 - ESP32
 - MQTT
@@ -117,27 +134,65 @@ TwinSense AI
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Current API Endpoints
 
-### Clone the repository
+## System
 
-```bash
-git clone https://github.com/YOUR_USERNAME/TwinSense-AI.git
+```
+GET /
+GET /system/health
 ```
 
-### Navigate into the project
+## Factory APIs
+
+```
+POST /factory
+GET /factory/{factory_id}
+```
+
+## Machine APIs
+
+```
+POST /factory/{factory_id}/machine
+POST /machine
+```
+
+## Sensor APIs
+
+```
+POST /factory/{factory_id}/machine/{machine_index}/sensor
+```
+
+## Energy APIs
+
+```
+GET /factory/{factory_id}/energy
+GET /factory/{factory_id}/energy/report
+```
+
+---
+
+# 🚀 Running the Project
+
+Clone the repository
+
+```bash
+git clone https://github.com/MechShadow1byt/TwinSense-AI.git
+```
+
+Move into backend
 
 ```bash
 cd TwinSense-AI/backend
 ```
 
-### Install dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run the server
+Run server
 
 ```bash
 uvicorn app.main:app --reload
@@ -145,9 +200,7 @@ uvicorn app.main:app --reload
 
 ---
 
-## 📄 API Documentation
-
-After starting the server:
+# 📄 API Documentation
 
 Swagger UI
 
@@ -163,127 +216,67 @@ http://127.0.0.1:8000/redoc
 
 ---
 
-## 📂 Current Project Structure
+# 📂 Project Structure
 
 ```
 TwinSense-AI/
+
+backend/
 │
-├── backend/
-│   ├── app/
-│   ├── requirements.txt
-│   └── main.py
+├── app/
+│   ├── main.py
+│   ├── models.py
+│   └── __init__.py
 │
-├── frontend/
+├── requirements.txt
 │
-├── datasets/
-│
-├── docs/
-│
-└── README.md
+README.md
 ```
 
 ---
 
-## 🚧 Current Development Status
+# 🎯 Development Roadmap
 
-TwinSense AI is currently in the early development phase.
+## Phase 1 ✅
 
-The current version focuses on building the core backend architecture, API system, and foundation required for the future AI-powered Digital Twin platform.
+- FastAPI backend
+- Factory APIs
+- Machine APIs
+- Sensor APIs
+- Energy calculation
+- Energy reporting
 
-At this stage, users can:
-- Run the FastAPI backend locally
-- Access API endpoints
-- Test factory data communication
-- View system health information
+## Phase 2 (Current Goal)
 
-The complete interactive dashboard, AI prediction models, and sensor integration are under active development.
+- Database integration
+- Machine efficiency scoring
+- AI recommendations
+- Factory dashboard endpoint
 
----
+## Phase 3
 
-## 🔮 Future User Workflow
+- Digital Twin visualisation
+- Dashboard
+- Live IoT data
+- REGENARC integration
 
-In the final version, users will be able to:
+## Phase 4
 
-1. Provide factory information:
-   - Factory layout
-   - Machine details
-   - Production data
-   - Energy consumption data
-   - Environmental sensor readings
-
-2. TwinSense AI will automatically:
-   - Create a digital representation of the factory
-   - Analyze pollution levels
-   - Predict future environmental impact
-   - Detect machine inefficiencies
-   - Generate optimization recommendations
-
-3. Users will receive:
-   - Real-time environmental dashboard
-   - Pollution predictions
-   - Energy analysis
-   - Carbon footprint estimation
-   - AI-generated improvement suggestions
-
-## 🎯 Vision
-
-TwinSense AI aims to bridge the gap between environmental sustainability and industrial productivity by creating intelligent Digital Twins that can:
-
-- Predict pollution before it happens
-- Reduce industrial energy waste
-- Improve machine efficiency
-- Support sustainable manufacturing
-- Assist decision-makers using AI-generated recommendations
+- Predictive AI
+- Cloud deployment
+- Multi-factory management
+- Mobile application
 
 ---
 
-## 🗺 Roadmap
-
-### Phase 1
-- [x] FastAPI backend
-- [x] API endpoints
-- [ ] Database integration
-- [ ] Sensor data ingestion
-
-### Phase 2
-- [ ] AI prediction models
-- [ ] Digital Twin engine
-- [ ] Dashboard development
-
-### Phase 3
-- [ ] IoT integration
-- [ ] Real-time analytics
-- [ ] Optimization engine
-
-### Phase 4
-- [ ] Cloud deployment
-- [ ] Multi-factory support
-- [ ] Mobile application
-
----
-
-## 🤝 Contributing
-
-Contributions, suggestions, and feedback are welcome.
-
-Please open an issue or submit a pull request.
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
----
-
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Bhavit**
 
-Student | AI & Mechanical Engineering Enthusiast
+Class 10 Student • AI & Mechanical Engineering Enthusiast
 
-Building intelligent systems for the physical world through AI, Digital Twins, and Engineering.
+Building intelligent systems that connect AI with the physical world through Digital Twins, Energy Optimisation, and Sustainable Manufacturing.
 
 ---
 
-⭐ If you find this project interesting, consider giving it a star.
+⭐ Star the repository if you'd like to follow the development of TwinSense AI.
